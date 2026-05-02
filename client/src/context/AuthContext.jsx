@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [loading, setLoading] = useState(true);
 
-  // load user on mount if token exists
+
   useEffect(() => {
     const loadUser = async () => {
       if (token) {
@@ -33,7 +33,6 @@ export function AuthProvider({ children }) {
           setUser(res.data.user);
         } catch (err) {
           console.error("Failed to load user:", err);
-          // token might be expired, clear it
           localStorage.removeItem("token");
           setToken(null);
           setUser(null);
@@ -71,7 +70,7 @@ export function AuthProvider({ children }) {
   );
 }
 
-// custom hook to use auth context
+
 export function useAuth() {
   const context = useContext(AuthContext);
   if (!context) {
