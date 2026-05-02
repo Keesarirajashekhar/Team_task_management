@@ -3,7 +3,7 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
-const API_URL = "https://teamtaskmanager-production-507e.up.railway.app/api";
+const API_URL = "/api";
 
 
 const api = axios.create({

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const path = require("path");
 
 
 dotenv.config();
@@ -25,9 +26,11 @@ app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/tasks", taskRoutes);
 
-// basic root route
-app.get("/", (req, res) => {
-  res.json({ message: "Team Task Manager API is running" });
+// serve frontend
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
 // start server
