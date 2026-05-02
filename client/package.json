@@ -11,7 +11,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "serve dist"
+    "start": "serve -s dist -l $PORT"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
