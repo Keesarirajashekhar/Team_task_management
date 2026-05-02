@@ -3,9 +3,9 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API_URL = "https://teamtaskmanager-production-507e.up.railway.app/api";
 
-// create axios instance with base url
+
 const api = axios.create({
   baseURL: API_URL,
 });
